@@ -9,14 +9,22 @@ import { FULL_MONTHS } from "./calendar";
 import { counts, entries, species, year } from "./sample";
 
 const photos = [
-  { id: "perche", label: "Perche", alt: "Une pêcheuse présente une perche au bord d’une rivière." },
+  {
+    id: "perche",
+    label: "Perche",
+    alt: "Une pêcheuse en veste ocre présente une perche sur un ponton.",
+  },
   {
     id: "brochet",
     label: "Brochet",
-    alt: "Un pêcheur tient un brochet au-dessus d’un tapis de réception.",
+    alt: "Un pêcheur présente un brochet sur les galets, au ras de l’eau.",
   },
-  { id: "carpe", label: "Carpe", alt: "Une pêcheuse tient une carpe commune sur la berge." },
-  { id: "sandre", label: "Sandre", alt: "Un adolescent présente un sandre au bord d’une rivière." },
+  {
+    id: "carpe",
+    label: "Carpe",
+    alt: "Une pêcheuse présente une carpe commune sur la berge au lever du soleil.",
+  },
+  { id: "sandre", label: "Sandre", alt: "Un adolescent assis sur un rocher présente un sandre." },
 ] as const;
 
 export function CatchBookPreview() {
