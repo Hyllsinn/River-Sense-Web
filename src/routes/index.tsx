@@ -107,7 +107,7 @@ function Index() {
                     <Smartphone size={25} />
                   </span>
                   <span>
-                    <small>Bientôt sur</small>
+                    <small>Télécharger sur</small>
                     <strong>App Store</strong>
                   </span>
                   <ArrowUpRight className="rs-store-arrow" size={15} aria-hidden="true" />
@@ -120,7 +120,7 @@ function Index() {
                     <path fill="#FF4761" d="m18 16 4.9 4.1L7.2 29c-.8.5-1.6.5-2.2 0z" />
                   </svg>
                   <span>
-                    <small>Bientôt sur</small>
+                    <small>Télécharger sur</small>
                     <strong>Google Play</strong>
                   </span>
                   <ArrowUpRight className="rs-store-arrow" size={15} aria-hidden="true" />
@@ -161,13 +161,13 @@ function Index() {
               <p className="rs-eyebrow">
                 <span /> Sur votre téléphone
               </p>
-              <h2 id="launch-title">Retrouvez bientôt River’Sense au bord de l’eau.</h2>
+              <h2 id="launch-title">Retrouvez River’Sense au bord de l’eau.</h2>
               <p>
-                Le lancement mobile est en préparation. Les liens de téléchargement seront ajoutés
-                ici dès leur disponibilité.
+                River’Sense est disponible sur Android et iOS. Consultez les conditions de votre
+                rivière directement sur votre téléphone.
               </p>
             </div>
-            <div className="rs-platforms" aria-label="Plateformes prévues">
+            <div className="rs-platforms" aria-label="Plateformes disponibles">
               <span>
                 <Smartphone size={19} aria-hidden="true" /> Android
               </span>
