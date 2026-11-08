@@ -202,7 +202,7 @@ export function ChartFrame({
             return (
               <span
                 key={label + "-" + index}
-                className="absolute top-0 whitespace-nowrap text-[11px] text-muted-foreground"
+                className="absolute top-0 text-[9px] leading-none font-medium whitespace-nowrap text-muted-foreground tabular-nums"
                 style={{
                   left: String(left) + "%",
                   transform: isFirst ? "none" : isLast ? "translateX(-100%)" : "translateX(-50%)",

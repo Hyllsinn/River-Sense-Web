@@ -168,7 +168,7 @@ export function FishActivity({
             xLabelEvery={4}
             xLabelIndices={selectedPoints?.flatMap((point, index) =>
               point.hour.endsWith(":00") &&
-              Number(point.hour.slice(0, 2)) % 2 === 0 &&
+              Number(point.hour.slice(0, 2)) % 4 === 0 &&
               selectedPoints.findIndex((p) => p.hour === point.hour) === index
                 ? [index]
                 : [],
