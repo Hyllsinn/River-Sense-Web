@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
+  CloudSun,
   Activity,
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
   Camera,
-  CloudSun,
   Fish,
   MapPin,
   Smartphone,
   Waves,
 } from "lucide-react";
-import { useState } from "react";
+import { MobilePreview } from "../mobile-preview/MobilePreview";
 
 import landingCss from "../landing.css?url";
 
@@ -40,29 +40,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const previews = {
-  Perche: {
-    time: "07 h",
-    score: 82,
-    curve:
-      "M0 75 C12 76 21 79 34 71 S56 32 73 23 S92 32 105 38 S125 48 136 60 S156 70 169 63 S190 47 201 49 S224 70 240 73",
-  },
-  Sandre: {
-    time: "19 h",
-    score: 86,
-    curve:
-      "M0 64 C15 55 24 55 40 61 S65 70 82 66 S108 72 124 73 S146 75 163 66 S186 44 199 28 S219 29 240 50",
-  },
-  "Truite fario": {
-    time: "09 h",
-    score: 78,
-    curve:
-      "M0 80 C14 80 27 75 39 65 S60 46 75 38 S92 27 103 32 S128 57 144 61 S162 64 176 58 S199 57 210 65 S229 76 240 81",
-  },
-};
-
-type Species = keyof typeof previews;
-
 function Brand() {
   return (
     <a className="rs-brand" href="/" aria-label="River’Sense, accueil">
@@ -71,88 +48,6 @@ function Brand() {
       </span>
       River’Sense
     </a>
-  );
-}
-
-function ActivityPreview() {
-  const [species, setSpecies] = useState<Species>("Perche");
-  const { score, time, curve } = previews[species];
-
-  return (
-    <figure className="rs-preview">
-      <div className="rs-phone">
-        <div className="rs-phone-top">
-          <span>
-            <Waves size={16} aria-hidden="true" /> River’Sense
-          </span>
-          <CloudSun size={19} aria-hidden="true" />
-        </div>
-        <div className="rs-phone-place">
-          <MapPin size={17} aria-hidden="true" />
-          <div>
-            <strong>Cognac</strong>
-            <small>La Charente</small>
-          </div>
-        </div>
-        <div className="rs-phone-card">
-          <div className="rs-phone-label">
-            <Activity size={15} aria-hidden="true" /> Activité estimée
-          </div>
-          <div className="rs-species" role="group" aria-label="Espèce à afficher">
-            {(Object.keys(previews) as Species[]).map((name) => (
-              <button
-                key={name}
-                type="button"
-                aria-pressed={species === name}
-                onClick={() => setSpecies(name)}
-              >
-                {name}
-              </button>
-            ))}
-          </div>
-          <p className="rs-score" aria-live="polite">
-            <strong>
-              {score}
-              <span> %</span>
-            </strong>
-            <small>Pic estimé · {time}</small>
-          </p>
-          <svg
-            className="rs-chart"
-            viewBox="0 0 240 96"
-            role="img"
-            aria-label={`Profil horaire illustratif pour ${species}`}
-          >
-            <defs>
-              <linearGradient id="river-activity" x2="0" y2="1">
-                <stop stopColor="currentColor" stopOpacity=".36" />
-                <stop offset="100%" stopColor="currentColor" stopOpacity=".02" />
-              </linearGradient>
-            </defs>
-            <path d="M0 22H240 M0 46H240 M0 70H240 M0 94H240" stroke="var(--rs-line)" fill="none" />
-            <path d={`${curve} L240 96 H0 Z`} fill="url(#river-activity)" />
-            <path
-              d={curve}
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-              fill="none"
-            />
-          </svg>
-          <div className="rs-chart-times" aria-hidden="true">
-            <span>00 h</span>
-            <span>06 h</span>
-            <span>12 h</span>
-            <span>18 h</span>
-            <span>24 h</span>
-          </div>
-        </div>
-        <div className="rs-phone-bottom">
-          <Waves size={16} aria-hidden="true" /> Niveau · Débit · Température
-        </div>
-      </div>
-      <figcaption>Aperçu interactif · Données illustratives</figcaption>
-    </figure>
   );
 }
 
@@ -222,7 +117,7 @@ function Index() {
                 <MapPin size={15} aria-hidden="true" /> Rivières de France métropolitaine
               </p>
             </div>
-            <ActivityPreview />
+            <MobilePreview />
           </div>
         </section>
         <section className="rs-features" id="fonctionnalites" aria-labelledby="features-title">

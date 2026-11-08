@@ -1,0 +1,101 @@
+.mobile-demo {
+  --radius: 0.9rem;
+  --background: oklch(0.19 0.035 200);
+  --foreground: oklch(0.96 0.012 180);
+  --card: oklch(0.235 0.038 200);
+  --card-foreground: oklch(0.96 0.012 180);
+  --popover: oklch(0.235 0.038 200);
+  --popover-foreground: oklch(0.96 0.012 180);
+  --primary: oklch(0.78 0.14 175);
+  --primary-foreground: oklch(0.19 0.04 200);
+  --secondary: oklch(0.3 0.04 200);
+  --secondary-foreground: oklch(0.95 0.01 180);
+  --muted: oklch(0.28 0.032 200);
+  --muted-foreground: oklch(0.72 0.028 190);
+  --accent: oklch(0.8 0.13 82);
+  --accent-foreground: oklch(0.2 0.04 200);
+  --destructive: oklch(0.65 0.2 25);
+  --destructive-foreground: oklch(0.98 0.01 180);
+  --border: oklch(0.34 0.035 200);
+  --input: oklch(0.34 0.035 200);
+  --ring: oklch(0.78 0.14 175);
+  --water: oklch(0.68 0.13 220);
+  --reed: oklch(0.75 0.14 145);
+  --sand: oklch(0.8 0.13 82);
+  --weather-sun: #f5b21b;
+  --weather-cloud: #f4f7f7;
+  --weather-cloud-dark: #91aaa8;
+  --weather-rain: #278fe5;
+  --weather-snow: #ffffff;
+  --weather-lightning: #f1b536;
+  --chart-1: oklch(0.78 0.14 175);
+  --chart-2: oklch(0.68 0.13 220);
+  --chart-3: oklch(0.8 0.13 82);
+  --chart-4: oklch(0.75 0.14 145);
+  --chart-5: oklch(0.7 0.16 25);
+  --gradient-river: linear-gradient(
+    140deg,
+    oklch(0.26 0.05 205) 0%,
+    oklch(0.21 0.04 195) 55%,
+    oklch(0.24 0.05 165) 100%
+  );
+  --shadow-float-value: 0 18px 40px -22px oklch(0.1 0.04 200 / 0.9);
+}
+
+.mobile-demo {
+  --color-primary: var(--primary);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-water: var(--water);
+  --color-reed: var(--reed);
+  --color-sand: var(--sand);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  color: var(--foreground);
+  line-height: 1.5;
+}
+
+.rs-site .mobile-demo .section-title {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.mobile-demo .panel:first-child {
+  margin-top: 0;
+}
+
+.mobile-demo-scroll {
+  max-height: 42rem;
+  overflow-y: auto;
+  scrollbar-color: #477770 #092521;
+  scrollbar-width: thin;
+  padding: 1rem;
+  border: 1px solid var(--rs-line);
+  border-radius: 1rem;
+  background:
+    linear-gradient(#031c120d, #031c1226),
+    url("/river-predawn-portrait.webp") center top / cover;
+}
+
+.mobile-demo-caption {
+  margin-bottom: 0.5rem;
+  color: var(--rs-muted);
+  font-size: 0.75rem;
+}
+
+.mobile-demo-frame {
+  width: min(100%, 27rem);
+  min-width: 0;
+  justify-self: center;
+}
+
+@media (max-width: 420px) {
+  .mobile-demo-scroll {
+    padding-inline: 0.45rem;
+  }
+}

@@ -1,0 +1,40 @@
+@theme inline {
+  --color-water: var(--water);
+  --color-reed: var(--reed);
+  --color-sand: var(--sand);
+  --color-weather-sun: var(--weather-sun);
+  --color-weather-cloud: var(--weather-cloud);
+  --color-weather-cloud-dark: var(--weather-cloud-dark);
+  --color-weather-rain: var(--weather-rain);
+  --color-weather-snow: var(--weather-snow);
+  --color-weather-lightning: var(--weather-lightning);
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+}
+
+@utility panel {
+  background: var(--gradient-river);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-float-value);
+}
+
+@utility inner-panel {
+  background-color: color-mix(in oklab, var(--color-card) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-border) 60%, transparent);
+  border-radius: var(--radius-xl);
+}
+
+@utility section-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+@utility label-caps {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
