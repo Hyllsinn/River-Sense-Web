@@ -283,31 +283,10 @@
 .rs-premium-benefits strong {
   color: var(--rs-ink);
 }
-.rs-premium-prices {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.65rem;
-  margin-bottom: 1.15rem;
-}
-.rs-premium-prices div {
-  border: 1px solid var(--rs-line);
-  border-radius: 0.9rem;
-  background: #092a2c;
-  padding: 0.8rem;
-}
-.rs-premium-prices dt {
-  color: var(--rs-muted);
-  font-size: 0.8rem;
-}
-.rs-premium-prices dd {
-  color: var(--rs-primary);
-  font-size: clamp(1.1rem, 3vw, 1.55rem);
-  font-weight: 700;
-}
-.rs-premium-prices dd span {
-  color: var(--rs-muted);
-  font-size: 0.75rem;
-  font-weight: 500;
+@media (min-width: 768px) {
+  .rs-premium-layout {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
 }
 .rs-help h2 {
   font-size: clamp(1.6rem, 3vw, 2.25rem);

@@ -5,7 +5,8 @@ import { CatchBookPreview } from "./CatchBookPreview";
 export function PremiumSection() {
   return (
     <section className="rs-panel" id="premium" aria-labelledby="premium-title">
-      <div className="rs-hero-inner">
+      <div className="rs-hero-inner rs-premium-layout">
+        <CatchBookPreview />
         <div className="rs-intro">
           <p className="rs-eyebrow">
             <Sparkles size={15} aria-hidden="true" /> River’Sense Premium
@@ -38,22 +39,7 @@ export function PremiumSection() {
               </p>
             </li>
           </ul>
-          <dl className="rs-premium-prices" aria-label="Tarifs Premium">
-            <div>
-              <dt>Mensuel</dt>
-              <dd>
-                0,99 € <span>/ mois</span>
-              </dd>
-            </div>
-            <div>
-              <dt>Annuel</dt>
-              <dd>
-                9,90 € <span>/ an</span>
-              </dd>
-            </div>
-          </dl>
         </div>
-        <CatchBookPreview />
       </div>
     </section>
   );
