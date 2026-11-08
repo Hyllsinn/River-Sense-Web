@@ -1,0 +1,163 @@
+import { ChartColumn, ChartSpline, Fish, List, Trophy, X } from "lucide-react";
+import { useState } from "react";
+
+import { PreviewPhone } from "../mobile-preview/PreviewPhone";
+import { CatchChart } from "./CatchChart";
+import { CatchSpeciesTable } from "./CatchSpeciesTable";
+import { FULL_MONTHS } from "./calendar";
+import { counts, entries, species, year } from "./sample";
+
+const photos = [
+  { id: "perche", label: "Perche", alt: "Une pêcheuse présente une perche au bord d’une rivière." },
+  {
+    id: "brochet",
+    label: "Brochet",
+    alt: "Un pêcheur tient un brochet au-dessus d’un tapis de réception.",
+  },
+  { id: "carpe", label: "Carpe", alt: "Une pêcheuse tient une carpe commune sur la berge." },
+] as const;
+
+export function CatchBookPreview() {
+  const [overview, setOverview] = useState<"chart" | "species">("chart");
+  const [month, setMonth] = useState<number | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<(typeof photos)[number] | null>(null);
+  const visible = month === null ? [] : entries.filter((entry) => entry.month === month);
+
+  return (
+    <PreviewPhone caption="Aperçu interactif du carnet">
+      <section className="panel p-4" aria-labelledby="preview-catch-title">
+        {month === null ? (
+          <>
+            <div className="mb-5 flex items-center justify-between gap-3">
+              <h2 id="preview-catch-title" className="section-title flex items-center gap-2">
+                <ChartSpline className="size-5 shrink-0 text-primary" aria-hidden />
+                Mes prises
+              </h2>
+              <div
+                role="group"
+                aria-label="Vue des prises"
+                className="relative flex shrink-0 rounded-full border border-border bg-secondary p-0.5"
+              >
+                <span
+                  aria-hidden
+                  className={`pointer-events-none absolute left-0.5 top-0.5 h-10 w-11 border border-foreground/30 bg-muted shadow-sm transition-[transform,translate,border-radius] duration-200 motion-reduce:transition-none ${overview === "species" ? "translate-x-full rounded-r-[1.25rem]" : "rounded-l-[1.25rem]"}`}
+                />
+                <button
+                  type="button"
+                  aria-label="Afficher le graphique annuel"
+                  aria-pressed={overview === "chart"}
+                  className={`relative flex h-10 w-11 items-center justify-center rounded-l-full ${overview === "chart" ? "text-primary" : "text-muted-foreground"}`}
+                  onClick={() => setOverview("chart")}
+                >
+                  <ChartColumn className="size-5" aria-hidden />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Afficher les espèces"
+                  aria-pressed={overview === "species"}
+                  className={`relative flex h-10 w-11 items-center justify-center rounded-r-full ${overview === "species" ? "text-primary" : "text-muted-foreground"}`}
+                  onClick={() => setOverview("species")}
+                >
+                  <List className="size-5" aria-hidden />
+                </button>
+              </div>
+            </div>
+            {overview === "chart" ? (
+              <>
+                <CatchChart counts={counts} year={year} onMonth={setMonth} />
+                <p className="mt-4 text-center text-xs text-muted-foreground">
+                  Touchez un mois pour voir vos prises.
+                </p>
+              </>
+            ) : (
+              <CatchSpeciesTable entries={entries} year={year} species={species} />
+            )}
+            <p className="mt-3 text-center text-sm font-semibold">{year}</p>
+          </>
+        ) : (
+          <>
+            <div className="mb-4 flex items-start justify-between gap-3">
+              <div>
+                <h2 id="preview-catch-title" className="section-title">
+                  {FULL_MONTHS[month]} {year}
+                </h2>
+                <p className="text-sm text-muted-foreground" aria-live="polite">
+                  {visible.length} prise{visible.length === 1 ? "" : "s"}
+                </p>
+              </div>
+              <button
+                type="button"
+                aria-label="Fermer les prises du mois"
+                className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-secondary"
+                onClick={() => setMonth(null)}
+              >
+                <X className="size-5" aria-hidden />
+              </button>
+            </div>
+            {visible.length === 0 ? (
+              <p className="py-3 text-sm text-muted-foreground">Aucune prise ce mois-ci.</p>
+            ) : (
+              <ul className="space-y-2">
+                {visible.map((entry, index) => (
+                  <li key={index} className="inner-panel flex items-center gap-2 px-3 py-2 text-sm">
+                    <Fish className="size-4 text-primary" aria-hidden />
+                    {species.find((item) => item.id === entry.speciesId)?.label}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </>
+        )}
+      </section>
+      <section className="panel mt-5 p-4" aria-labelledby="preview-trophies-title">
+        <h2 id="preview-trophies-title" className="section-title mb-3 flex items-center gap-2">
+          <Trophy className="size-5 text-primary" aria-hidden /> Trophées
+        </h2>
+        {selectedPhoto ? (
+          <figure className="inner-panel overflow-hidden">
+            <img
+              src={`/premium/galerie-${selectedPhoto.id}.webp`}
+              alt={selectedPhoto.alt}
+              width="780"
+              height="520"
+              className="h-auto w-full"
+            />
+            <figcaption className="flex items-center justify-between gap-2 p-2 text-sm">
+              {selectedPhoto.label}
+              <button
+                type="button"
+                className="rounded-full px-2 py-1 text-primary"
+                onClick={() => setSelectedPhoto(null)}
+              >
+                Fermer
+              </button>
+            </figcaption>
+          </figure>
+        ) : (
+          <div className="grid grid-cols-3 gap-2">
+            {photos.map((photo) => (
+              <button
+                key={photo.id}
+                type="button"
+                aria-label={`Agrandir la photo : ${photo.label}`}
+                className="aspect-square overflow-hidden rounded-lg border border-border"
+                onClick={() => setSelectedPhoto(photo)}
+              >
+                <img
+                  src={`/premium/galerie-${photo.id}.webp`}
+                  alt={photo.alt}
+                  width="780"
+                  height="520"
+                  loading="lazy"
+                  decoding="async"
+                  className="size-full object-cover"
+                />
+              </button>
+            ))}
+          </div>
+        )}
+        <p className="mt-3 text-xs text-muted-foreground">Photos d’illustration générées.</p>
+      </section>
+    </PreviewPhone>
+  );
+}
