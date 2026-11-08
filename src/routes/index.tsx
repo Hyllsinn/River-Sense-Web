@@ -72,9 +72,6 @@ function Index() {
         <section className="rs-hero rs-panel" aria-labelledby="hero-title">
           <div className="rs-hero-inner">
             <div className="rs-intro">
-              <p className="rs-eyebrow">
-                <span /> L’application de pêche en rivière
-              </p>
               <h1 id="hero-title">
                 Analysez, <em>et saisissez le bon moment pour pêcher</em>
               </h1>
@@ -115,9 +112,6 @@ function Index() {
           </div>
         </section>
         <section className="rs-features" id="fonctionnalites" aria-labelledby="features-title">
-          <p className="rs-eyebrow">
-            <span /> De la préparation au retour
-          </p>
           <h2 id="features-title">
             Chaque sortie commence
             <br />

@@ -106,24 +106,6 @@
   padding: clamp(1.15rem, 4vw, 3rem);
 }
 
-.rs-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin: 0 0 0.65rem;
-  color: var(--rs-primary);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-.rs-eyebrow span {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: currentColor;
-  flex: none;
-}
 .rs-site h1,
 .rs-site h2,
 .rs-site h3 {

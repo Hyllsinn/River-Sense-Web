@@ -1,4 +1,4 @@
-import { Camera, ChartColumn, ShieldCheck, Sparkles } from "lucide-react";
+import { Camera, ChartColumn, ShieldCheck } from "lucide-react";
 
 import { CatchBookPreview } from "./CatchBookPreview";
 
@@ -8,9 +8,6 @@ export function PremiumSection() {
       <div className="rs-hero-inner rs-premium-layout">
         <CatchBookPreview />
         <div className="rs-intro">
-          <p className="rs-eyebrow">
-            <Sparkles size={15} aria-hidden="true" /> River’Sense Premium
-          </p>
           <h2 id="premium-title">Le carnet de vos sorties pêche</h2>
           <p className="rs-lead">
             Retrouvez vos prises en photo et suivez votre saison, mois par mois et espèce par
