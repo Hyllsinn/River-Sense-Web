@@ -73,7 +73,11 @@
   position: relative;
   display: grid;
   grid-template-rows: minmax(0, 1fr);
-  aspect-ratio: 9 / 19.5;
+  /* Exterior proportions of a compact 6.1-inch phone (71.5 × 146.7 mm). */
+  --phone-width: 71.5;
+  --phone-height: 146.7;
+  aspect-ratio: var(--phone-width) / var(--phone-height);
+  block-size: calc(100cqw * var(--phone-height) / var(--phone-width));
   padding: 0.44rem;
   border: 1px solid #829491;
   border-radius: clamp(1.9rem, 5vw, 2.85rem);
@@ -195,9 +199,10 @@
 }
 
 .mobile-demo-frame {
-  width: min(100%, 22.5rem);
+  width: min(100%, 21rem);
   min-width: 0;
   justify-self: center;
+  container-type: inline-size;
 }
 
 @media (max-width: 420px) {
