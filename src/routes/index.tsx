@@ -1,14 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import {
-  CloudSun,
-  Activity,
-  ArrowUpRight,
-  Camera,
-  Fish,
-  MapPin,
-  Smartphone,
-  Waves,
-} from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { CloudSun, Activity, ArrowUpRight, Camera, MapPin, Smartphone, Waves } from "lucide-react";
 import { MobilePreview } from "../mobile-preview/MobilePreview";
 
 import landingCss from "../landing.css?url";
@@ -189,12 +180,36 @@ function Index() {
           </a>
         </section>
       </main>
-      <footer className="rs-footer rs-panel">
-        <Brand />
-        <p>
-          <Fish size={17} aria-hidden="true" /> Pour les pêcheurs en rivière.
-        </p>
-        <a href="#assistance">Assistance</a>
+      <footer className="rs-footer">
+        <div className="rs-footer-inner">
+          <div className="rs-footer-grid">
+            <div>
+              <Brand />
+              <p>Les conditions de pêche en rivière, espèce par espèce.</p>
+            </div>
+            <nav aria-labelledby="footer-legal">
+              <h2 id="footer-legal">Informations légales</h2>
+              <ul>
+                <li>
+                  <Link to="/confidentialite">Politique de confidentialité</Link>
+                </li>
+                <li>
+                  <Link to="/conditions-utilisation">Conditions d’utilisation</Link>
+                </li>
+                <li>
+                  <a href="#assistance">Assistance</a>
+                </li>
+              </ul>
+            </nav>
+            <div>
+              <h2>Contact</h2>
+              <a className="rs-footer-email" href="mailto:riversense-mobile@orange.fr">
+                riversense-mobile@orange.fr
+              </a>
+            </div>
+          </div>
+          <p className="rs-footer-copyright">© 2026 River’Sense. Tous droits réservés.</p>
+        </div>
       </footer>
     </div>
   );
