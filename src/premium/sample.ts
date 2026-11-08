@@ -2,6 +2,8 @@ export const species = [
   { id: "perca_fluviatilis", label: "Perche" },
   { id: "esox_lucius", label: "Brochet" },
   { id: "cyprinus_carpio", label: "Carpe" },
+  { id: "sander_lucioperca", label: "Sandre" },
+  { id: "tinca_tinca", label: "Tanche" },
 ] as const;
 
 export type PreviewSpecies = (typeof species)[number]["id"];
@@ -14,6 +16,8 @@ const speciesOrder = [
   "esox_lucius",
   "perca_fluviatilis",
   "cyprinus_carpio",
+  "sander_lucioperca",
+  "tinca_tinca",
 ] as const;
 
 export const entries: PreviewEntry[] = totals.flatMap((count, month) =>

@@ -25,7 +25,7 @@ export function CatchChart({
               <div key={n} className="border-t border-dashed border-border/60" />
             ))}
           </div>
-          <div className="relative grid grid-cols-12 gap-0.5 sm:gap-2">
+          <div className="relative grid grid-cols-12 gap-0.5">
             {MONTHS.map((label, month) => {
               const count = counts[month] ?? 0;
               return (
@@ -52,10 +52,7 @@ export function CatchChart({
                       </span>
                     </span>
                   </span>
-                  <span
-                    aria-hidden
-                    className="mt-3 block text-[9px] text-muted-foreground sm:text-xs"
-                  >
+                  <span aria-hidden className="mt-3 block text-[8px] text-muted-foreground">
                     {label}
                   </span>
                 </button>

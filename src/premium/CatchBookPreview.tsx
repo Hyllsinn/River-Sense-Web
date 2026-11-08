@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import { PreviewPhone } from "../mobile-preview/PreviewPhone";
 import { CatchChart } from "./CatchChart";
+import { CatchLogIcon } from "./CatchLogIcon";
 import { CatchSpeciesTable } from "./CatchSpeciesTable";
 import { FULL_MONTHS } from "./calendar";
 import { counts, entries, species, year } from "./sample";
@@ -15,17 +16,55 @@ const photos = [
     alt: "Un pêcheur tient un brochet au-dessus d’un tapis de réception.",
   },
   { id: "carpe", label: "Carpe", alt: "Une pêcheuse tient une carpe commune sur la berge." },
+  { id: "sandre", label: "Sandre", alt: "Un adolescent présente un sandre au bord d’une rivière." },
 ] as const;
 
 export function CatchBookPreview() {
   const [overview, setOverview] = useState<"chart" | "species">("chart");
+  const [addCatchOpen, setAddCatchOpen] = useState(false);
   const [month, setMonth] = useState<number | null>(null);
   const [selectedPhoto, setSelectedPhoto] = useState<(typeof photos)[number] | null>(null);
   const visible = month === null ? [] : entries.filter((entry) => entry.month === month);
 
   return (
     <PreviewPhone caption="Aperçu interactif du carnet">
-      <section className="panel p-4" aria-labelledby="preview-catch-title">
+      <button
+        type="button"
+        aria-expanded={addCatchOpen}
+        aria-controls="preview-add-catch"
+        onClick={() => setAddCatchOpen((open) => !open)}
+        className="panel relative flex w-full flex-col items-center gap-2 overflow-hidden p-6 transition-colors hover:border-primary"
+      >
+        <img
+          src="/premium/ajouter-prise-fond.webp"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 size-full object-cover opacity-55"
+        />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/60 via-background/20 to-background/60"
+        />
+        <CatchLogIcon className="relative h-12 w-14 text-primary drop-shadow" />
+        <span className="relative font-display text-lg font-semibold drop-shadow">
+          Ajouter une prise
+        </span>
+      </button>
+      <section
+        id="preview-add-catch"
+        className="inner-panel mt-3 p-4"
+        aria-labelledby="preview-add-catch-title"
+        hidden={!addCatchOpen}
+      >
+        <h2 id="preview-add-catch-title" className="section-title">
+          Photographier une prise
+        </h2>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Dans River’Sense, prenez votre poisson en photo. L’IA analyse l’image et vous propose une
+          espèce, que vous pouvez confirmer ou corriger avant d’enregistrer la prise.
+        </p>
+      </section>
+      <section className="panel mt-5 p-4" aria-labelledby="preview-catch-title">
         {month === null ? (
           <>
             <div className="mb-5 flex items-center justify-between gap-3">
@@ -134,7 +173,7 @@ export function CatchBookPreview() {
             </figcaption>
           </figure>
         ) : (
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-2 gap-2">
             {photos.map((photo) => (
               <button
                 key={photo.id}
@@ -156,7 +195,6 @@ export function CatchBookPreview() {
             ))}
           </div>
         )}
-        <p className="mt-3 text-xs text-muted-foreground">Photos d’illustration générées.</p>
       </section>
     </PreviewPhone>
   );

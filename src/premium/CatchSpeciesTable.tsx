@@ -8,12 +8,28 @@ const SPECIES_BAR_COLORS: Record<PreviewSpecies, string> = {
   cyprinus_carpio: "#C69B58",
   esox_lucius: "#718752",
   perca_fluviatilis: "#A4B45D",
+  sander_lucioperca: "#99B0B9",
+  tinca_tinca: "#8F9965",
 };
 
 const IMAGE_BOUNDS: Record<
   string,
   { width: number; height: number; left: number; top: number; ratio: number }
 > = {
+  sander_lucioperca: {
+    width: 169.76127320954907,
+    height: 134.59715639810426,
+    left: -34.748010610079575,
+    top: -27.96208530805687,
+    ratio: 1.7867298578199051,
+  },
+  tinca_tinca: {
+    width: 176.3085399449036,
+    height: 135.88516746411483,
+    left: -38.29201101928375,
+    top: -26.794258373205743,
+    ratio: 1.736842105263158,
+  },
   perca_fluviatilis: {
     width: 176.79558011049724,
     height: 125.66371681415929,
