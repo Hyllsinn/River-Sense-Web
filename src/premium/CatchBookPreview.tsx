@@ -12,7 +12,7 @@ const photos = [
   {
     id: "perche",
     label: "Perche",
-    alt: "Un pêcheur présente une perche sur un ponton, avec la rivière à droite.",
+    alt: "Un pêcheur présente une perche sur un ponton, avec la rivière à gauche.",
   },
   {
     id: "brochet",
