@@ -60,10 +60,10 @@ function Index() {
       <header className="rs-header">
         <a className="rs-banner" href="/" aria-label="River’Sense, accueil">
           <img
-            src="/river-sense-banner.webp"
+            src="/riversense-banniere.png"
             alt="River’Sense · Catch the moment"
-            width="1280"
-            height="480"
+            width="2048"
+            height="768"
             fetchPriority="high"
           />
         </a>
