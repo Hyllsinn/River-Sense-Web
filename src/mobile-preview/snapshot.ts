@@ -17,22 +17,21 @@ const isoDay = (offset: number) =>
   new Date(midnight + offset * dayMs + 12 * hourMs).toISOString().slice(0, 10);
 const round = (value: number) => Math.round(value * 100) / 100;
 
+// Keep a fixed curve phase for each species, independent of the display order.
 const species = [
-  ["perca_fluviatilis", "Perche", 8, 16],
-  ["esox_lucius", "Brochet", 10, 15],
-  ["sander_lucioperca", "Sandre", 6, 19],
-  ["cyprinus_carpio", "Carpe", 10, 17],
-  ["cyprinus_carpio_mirror", "Carpe miroir", 11, 18],
-  ["barbus_barbus", "Barbeau", 7, 18],
-  ["squalius_cephalus", "Chevesne", 9, 15],
-  ["tinca_tinca", "Tanche", 8, 17],
-  ["abramis_brama", "Brème", 11, 16],
-  ["rutilus_rutilus", "Gardon", 9, 14],
-  ["oncorhynchus_mykiss", "Truite arc-en-ciel", 8, 16],
-  ["salmo_trutta", "Truite fario", 8, 17],
-  ["micropterus_salmoides", "Black-bass", 10, 16],
-  ["silurus_glanis", "Silure", 5, 21],
-  ["thymallus_thymallus", "Ombre", 9, 15],
+  ["perca_fluviatilis", "Perche", 8, 16, 0],
+  ["esox_lucius", "Brochet", 10, 15, 1],
+  ["sander_lucioperca", "Sandre", 6, 19, 2],
+  ["cyprinus_carpio", "Carpe", 10, 17, 3],
+  ["barbus_barbus", "Barbeau", 7, 18, 5],
+  ["squalius_cephalus", "Chevesne", 9, 15, 6],
+  ["tinca_tinca", "Tanche", 8, 17, 7],
+  ["abramis_brama", "Brème", 11, 16, 8],
+  ["rutilus_rutilus", "Gardon", 9, 14, 9],
+  ["oncorhynchus_mykiss", "Truite arc-en-ciel", 8, 16, 10],
+  ["micropterus_salmoides", "Black-bass", 10, 16, 12],
+  ["silurus_glanis", "Silure", 5, 21, 13],
+  ["thymallus_thymallus", "Ombre", 9, 15, 14],
 ] as const;
 
 const fishFeeding: FishFeedingDisplay = {
@@ -48,7 +47,7 @@ const fishFeeding: FishFeedingDisplay = {
         activityGroup: "demo",
         label: "Espèces",
         points: [],
-        species: species.map(([speciesId, label, morning, evening], index) => ({
+        species: species.map(([speciesId, label, morning, evening, phase]) => ({
           speciesId,
           label,
           points: Array.from({ length: 24 }, (_, hour) => ({
@@ -62,8 +61,8 @@ const fishFeeding: FishFeedingDisplay = {
                   17 +
                     45 * Math.exp(-((hour - morning - day / 5) ** 2) / 10) +
                     42 * Math.exp(-((hour - evening + day / 4) ** 2) / 12) +
-                    8 * Math.sin(hour * 0.87 + index + day) +
-                    5 * Math.cos(hour * 1.7 + day - index),
+                    8 * Math.sin(hour * 0.87 + phase + day) +
+                    5 * Math.cos(hour * 1.7 + day - phase),
                 ),
               ),
             ),
