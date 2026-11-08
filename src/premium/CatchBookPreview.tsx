@@ -157,10 +157,13 @@ export function CatchBookPreview() {
                 {visible.map((entry) => {
                   const label = species.find((fish) => fish.id === entry.speciesId)?.label;
                   return (
-                    <li key={entry.caughtAt} className="inner-panel overflow-hidden p-4">
-                      <div className="flex items-center gap-3">
+                    <li
+                      key={entry.caughtAt}
+                      className="inner-panel overflow-hidden p-3 @max-[20rem]:p-2"
+                    >
+                      <div className="flex items-center gap-2 @max-[20rem]:gap-1">
                         <span
-                          className="flex h-10 w-20 shrink-0 items-center justify-center"
+                          className="flex h-10 w-16 shrink-0 items-center justify-center @max-[20rem]:w-10"
                           aria-hidden="true"
                         >
                           <img
@@ -175,7 +178,10 @@ export function CatchBookPreview() {
                         </span>
                         <div className="min-w-0 flex-1">
                           <p className="break-words font-semibold">{label}</p>
-                          <time dateTime={entry.caughtAt} className="text-sm text-muted-foreground">
+                          <time
+                            dateTime={entry.caughtAt}
+                            className="block text-[10px] whitespace-nowrap text-muted-foreground"
+                          >
                             {catchDate.format(new Date(entry.caughtAt))}
                           </time>
                         </div>
@@ -184,7 +190,7 @@ export function CatchBookPreview() {
                           disabled
                           aria-label={`Modifier ${label}`}
                           title="Modifier la prise"
-                          className="flex size-11 shrink-0 items-center justify-center rounded-full border border-border bg-secondary disabled:opacity-50"
+                          className="flex size-11 shrink-0 items-center justify-center rounded-full border border-border bg-secondary disabled:opacity-50 @max-[20rem]:size-8"
                         >
                           <Pencil className="size-4" aria-hidden />
                         </button>
