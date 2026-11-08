@@ -8,7 +8,7 @@ export function PremiumSection() {
       <div className="rs-hero-inner rs-premium-layout">
         <CatchBookPreview />
         <div className="rs-intro">
-          <h2 id="premium-title">Le carnet de vos sorties pêche</h2>
+          <h2 id="premium-title">Plus qu’un simple carnet de pêche, un autre outil d’analyse</h2>
           <p className="rs-lead">
             Retrouvez vos prises en photo et suivez votre saison, mois par mois et espèce par
             espèce.
