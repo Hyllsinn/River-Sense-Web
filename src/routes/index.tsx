@@ -66,7 +66,7 @@ const features = [
     icon: Camera,
     label: "Garder une trace · Premium",
     title: "Le carnet de prises",
-    body: "Enregistrez vos prises, identifiez un poisson à partir d’une photo et retrouvez vos statistiques par mois et par espèce. Le carnet reste sur votre téléphone.",
+    body: "Enregistrez vos prises, identifiez un poisson à partir d’une photo et retrouvez vos statistiques par mois et par espèce.",
   },
 ];
 
