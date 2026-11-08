@@ -142,10 +142,10 @@ function Index() {
         <div className="rs-footer-grid">
           <img
             className="rs-footer-logo"
-            src="/river-sense-footer.webp"
-            alt="Logo River’Sense, un poisson sautant hors de l’eau"
-            width="320"
-            height="320"
+            src="/river-sense-footer-mark.webp"
+            alt="River’Sense — Catch the Moment"
+            width="620"
+            height="175"
             loading="lazy"
             decoding="async"
           />
