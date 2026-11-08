@@ -193,13 +193,6 @@ function Index() {
             fetchPriority="high"
           />
         </a>
-        <nav aria-label="Navigation principale">
-          <a href="#fonctionnalites">Fonctionnalités</a>
-          <a href="#assistance">Assistance</a>
-          <a className="rs-header-cta" href="#application">
-            L’application <ArrowUpRight size={15} aria-hidden="true" />
-          </a>
-        </nav>
       </header>
       <main id="contenu">
         <section className="rs-hero rs-panel" aria-labelledby="hero-title">

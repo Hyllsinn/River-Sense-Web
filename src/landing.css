@@ -87,33 +87,15 @@
 .rs-banner:focus-visible {
   outline-offset: -5px;
 }
-.rs-header nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.6rem 1.2rem;
-  padding: 0.65rem 1rem;
-  background: #031b1d;
-  font-weight: 600;
-}
-.rs-header nav a,
 .rs-brand {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
 }
-.rs-header nav a:hover,
 .rs-text-link:hover,
 .rs-footer a:hover {
   text-decoration: underline;
   text-underline-offset: 0.22em;
-}
-.rs-header-cta {
-  border: 1px solid var(--rs-line);
-  padding: 0.38rem 0.75rem;
-  border-radius: 99px;
-  background: #113739;
 }
 .rs-site main {
   display: grid;
@@ -437,12 +419,6 @@
 @media (max-width: 767px) {
   .rs-site {
     padding-inline: 0.65rem;
-  }
-  .rs-header nav {
-    justify-content: center;
-    font-size: 0.8rem;
-    gap: 0.4rem 0.65rem;
-    padding-inline: 0.5rem;
   }
   .rs-hero-inner,
   .rs-feature-grid {
