@@ -188,12 +188,6 @@
   outline-offset: -2px;
 }
 
-@media (min-width: 900px) {
-  .mobile-demo-phone {
-    transform: perspective(900px) rotateY(-7deg) rotateX(2deg);
-  }
-}
-
 .mobile-demo-caption {
   margin-bottom: 0.5rem;
   color: var(--rs-muted);
