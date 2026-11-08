@@ -1,4 +1,13 @@
-import { ChartColumn, ChartSpline, List, Pencil, Trophy, X } from "lucide-react";
+import {
+  ChartColumn,
+  ChartSpline,
+  ChevronLeft,
+  ChevronRight,
+  List,
+  Pencil,
+  Trophy,
+  X,
+} from "lucide-react";
 import { useState } from "react";
 
 import { PreviewPhone } from "../mobile-preview/PreviewPhone";
@@ -128,7 +137,29 @@ export function CatchBookPreview() {
             ) : (
               <CatchSpeciesTable entries={entries} year={year} species={species} />
             )}
-            <p className="mt-3 text-center text-sm font-semibold">{year}</p>
+            <div
+              className="mt-3 flex items-center justify-center gap-2"
+              role="group"
+              aria-label="Année des prises"
+            >
+              <button
+                type="button"
+                disabled
+                aria-label="Année précédente"
+                className="rounded-full border border-border bg-secondary px-4 py-2 disabled:opacity-50"
+              >
+                <ChevronLeft className="size-4" aria-hidden />
+              </button>
+              <span className="text-sm font-semibold">{year}</span>
+              <button
+                type="button"
+                disabled
+                aria-label="Année suivante"
+                className="rounded-full border border-border bg-secondary px-4 py-2 disabled:opacity-50"
+              >
+                <ChevronRight className="size-4" aria-hidden />
+              </button>
+            </div>
           </>
         ) : (
           <>
