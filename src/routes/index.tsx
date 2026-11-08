@@ -137,17 +137,6 @@ function Index() {
           </div>
         </section>
         <PremiumSection />
-        <section className="rs-help rs-panel" id="assistance" aria-labelledby="help-title">
-          <div>
-            <p className="rs-eyebrow">
-              <span /> Assistance
-            </p>
-            <h2 id="help-title">Une question sur River’Sense ?</h2>
-          </div>
-          <a className="rs-text-link" href="mailto:riversense-mobile@orange.fr">
-            Écrire à l’assistance <ArrowUpRight size={19} aria-hidden="true" />
-          </a>
-        </section>
       </main>
       <footer className="rs-footer rs-panel">
         <div className="rs-footer-grid">
@@ -165,7 +154,7 @@ function Index() {
               </li>
             </ul>
           </nav>
-          <div>
+          <div id="assistance">
             <h2>Contact</h2>
             <a className="rs-footer-email" href="mailto:riversense-mobile@orange.fr">
               riversense-mobile@orange.fr
