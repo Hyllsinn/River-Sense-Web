@@ -214,7 +214,7 @@ export function FishActivity({
             <div
               role="tablist"
               aria-label="Jour de prévision de l'activité"
-              className="mt-3 grid grid-cols-6 gap-1 rounded-xl border border-border bg-card/40 p-1"
+              className="mt-3 grid grid-cols-6 gap-0.5 rounded-xl border border-border bg-card/40 p-1"
             >
               {display.days.slice(0, 6).map((forecastDay, index) => {
                 const active = index === selectedDayIndex;
@@ -228,16 +228,16 @@ export function FishActivity({
                     aria-label={`${dayWeekdayLabel(forecastDay.targetDate)}, ${dayDateLabel(forecastDay.targetDate)}`}
                     onClick={() => setSelectedDayIndex(index)}
                     className={
-                      "flex min-w-0 flex-col items-center rounded-lg px-1 py-1.5 transition-colors " +
+                      "flex min-w-0 flex-col items-center rounded-lg py-1.5 transition-colors " +
                       (active
                         ? "bg-primary text-primary-foreground shadow-sm"
                         : "text-muted-foreground hover:bg-muted hover:text-foreground")
                     }
                   >
-                    <span className="text-[9px] font-medium leading-none uppercase">
+                    <span className="text-[9px] font-medium leading-none whitespace-nowrap uppercase">
                       {dayWeekdayLabel(forecastDay.targetDate)}
                     </span>
-                    <span className="mt-1 text-[10px] font-semibold leading-none ">
+                    <span className="mt-1 text-[clamp(7px,2.65cqw,9px)] leading-none font-semibold whitespace-nowrap tabular-nums">
                       {dayDateLabel(forecastDay.targetDate)}
                     </span>
                   </button>
