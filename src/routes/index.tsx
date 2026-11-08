@@ -45,7 +45,7 @@ const features = [
   },
   {
     icon: Camera,
-    label: "Garder une trace · Premium",
+    label: "Garder une trace",
     title: "Le carnet de prises",
     body: "Enregistrez vos prises, identifiez un poisson à partir d’une photo et retrouvez vos statistiques par mois et par espèce.",
   },
