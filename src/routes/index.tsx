@@ -29,7 +29,13 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "stylesheet", href: landingCss }],
+    links: [
+      { rel: "stylesheet", href: landingCss },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter+Tight:wght@400;500;600&display=swap",
+      },
+    ],
   }),
   component: Index,
 });
@@ -119,13 +125,19 @@ function ActivityPreview() {
           >
             <defs>
               <linearGradient id="river-activity" x2="0" y2="1">
-                <stop stopColor="#58a878" stopOpacity=".46" />
-                <stop offset="100%" stopColor="#58a878" stopOpacity=".02" />
+                <stop stopColor="currentColor" stopOpacity=".36" />
+                <stop offset="100%" stopColor="currentColor" stopOpacity=".02" />
               </linearGradient>
             </defs>
-            <path d="M0 22H240 M0 46H240 M0 70H240 M0 94H240" stroke="#d7e4d6" fill="none" />
+            <path d="M0 22H240 M0 46H240 M0 70H240 M0 94H240" stroke="var(--rs-line)" fill="none" />
             <path d={`${curve} L240 96 H0 Z`} fill="url(#river-activity)" />
-            <path d={curve} stroke="#27734d" strokeWidth="3" strokeLinecap="round" fill="none" />
+            <path
+              d={curve}
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              fill="none"
+            />
           </svg>
           <div className="rs-chart-times" aria-hidden="true">
             <span>00 h</span>
@@ -141,52 +153,6 @@ function ActivityPreview() {
       </div>
       <figcaption>Aperçu interactif · Données illustratives</figcaption>
     </figure>
-  );
-}
-
-function RiverLandscape() {
-  return (
-    <svg
-      className="rs-landscape"
-      viewBox="0 0 800 480"
-      preserveAspectRatio="xMidYMax slice"
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient id="river-sky" x2="0" y2="1">
-          <stop stopColor="#b6d1bb" stopOpacity="0" />
-          <stop offset="1" stopColor="#b6d1bb" stopOpacity=".9" />
-        </linearGradient>
-        <linearGradient id="river-water" x2="0" y2="1">
-          <stop stopColor="#dfe8d2" />
-          <stop offset="1" stopColor="#8cbaa6" />
-        </linearGradient>
-      </defs>
-      <circle cx="638" cy="187" r="63" fill="#f7e8b8" opacity=".75" />
-      <path
-        d="M0 275 Q170 160 321 251 T585 235 Q696 186 800 241 V480 H0Z"
-        fill="#b7d0bb"
-        opacity=".6"
-      />
-      <path d="M0 304 Q164 231 299 299 T553 290 Q685 217 800 281 V480 H0Z" fill="url(#river-sky)" />
-      <path
-        d="M0 340 Q115 275 295 326 T571 312 Q681 270 800 305 V480 H0Z"
-        fill="#8eaf98"
-        opacity=".62"
-      />
-      <path
-        d="M563 323 C650 336 663 349 568 369 C472 390 329 381 321 418 C313 449 459 452 458 480 H800 V359 C751 345 658 331 563 323Z"
-        fill="url(#river-water)"
-      />
-      <path
-        d="M573 379 Q637 364 704 377 M465 418 Q562 401 686 410 M528 445 Q641 425 773 437"
-        fill="none"
-        stroke="#eaf0de"
-        strokeWidth="2"
-        opacity=".7"
-      />
-      <path d="M0 399 Q105 347 205 391 T314 480 H0Z" fill="#729b83" opacity=".6" />
-    </svg>
   );
 }
 
@@ -217,8 +183,16 @@ function Index() {
       <a className="rs-skip" href="#contenu">
         Aller au contenu
       </a>
-      <header className="rs-header rs-container">
-        <Brand />
+      <header className="rs-header">
+        <a className="rs-banner" href="/" aria-label="River’Sense, accueil">
+          <img
+            src="/river-sense-banner.webp"
+            alt="River’Sense · Catch the moment"
+            width="1280"
+            height="480"
+            fetchPriority="high"
+          />
+        </a>
         <nav aria-label="Navigation principale">
           <a href="#fonctionnalites">Fonctionnalités</a>
           <a href="#assistance">Assistance</a>
@@ -228,14 +202,13 @@ function Index() {
         </nav>
       </header>
       <main id="contenu">
-        <section className="rs-hero">
-          <RiverLandscape />
-          <div className="rs-container rs-hero-inner">
+        <section className="rs-hero rs-panel" aria-labelledby="hero-title">
+          <div className="rs-hero-inner">
             <div className="rs-intro">
               <p className="rs-eyebrow">
                 <span /> L’application de pêche en rivière
               </p>
-              <h1>
+              <h1 id="hero-title">
                 Lisez la rivière.
                 <br />
                 <em>Choisissez votre moment.</em>
@@ -259,11 +232,7 @@ function Index() {
             <ActivityPreview />
           </div>
         </section>
-        <section
-          className="rs-container rs-features"
-          id="fonctionnalites"
-          aria-labelledby="features-title"
-        >
+        <section className="rs-features" id="fonctionnalites" aria-labelledby="features-title">
           <p className="rs-eyebrow">
             <span /> De la préparation au retour
           </p>
@@ -285,7 +254,7 @@ function Index() {
             ))}
           </div>
         </section>
-        <section className="rs-container rs-launch" id="application" aria-labelledby="launch-title">
+        <section className="rs-launch rs-panel" id="application" aria-labelledby="launch-title">
           <div className="rs-launch-panel">
             <div>
               <p className="rs-eyebrow">
@@ -307,7 +276,7 @@ function Index() {
             </div>
           </div>
         </section>
-        <section className="rs-container rs-help" id="assistance" aria-labelledby="help-title">
+        <section className="rs-help rs-panel" id="assistance" aria-labelledby="help-title">
           <div>
             <p className="rs-eyebrow">
               <span /> Assistance
@@ -319,14 +288,12 @@ function Index() {
           </a>
         </section>
       </main>
-      <footer className="rs-footer">
-        <div className="rs-container">
-          <Brand />
-          <p>
-            <Fish size={17} aria-hidden="true" /> Pour les pêcheurs en rivière.
-          </p>
-          <a href="#assistance">Assistance</a>
-        </div>
+      <footer className="rs-footer rs-panel">
+        <Brand />
+        <p>
+          <Fish size={17} aria-hidden="true" /> Pour les pêcheurs en rivière.
+        </p>
+        <a href="#assistance">Assistance</a>
       </footer>
     </div>
   );
