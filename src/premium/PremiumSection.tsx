@@ -10,8 +10,8 @@ export function PremiumSection() {
         <div className="rs-intro">
           <h2 id="premium-title">Plus qu’un simple carnet de pêche, un autre outil d’analyse</h2>
           <p className="rs-lead">
-            Retrouvez vos prises en photo et suivez votre saison, mois par mois et espèce par
-            espèce.
+            En souscrivant à l’abonnement Premium, vous soutenez le projet River’Sense et accédez à
+            des fonctionnalités d’analyse supplémentaires.
           </p>
           <ul className="rs-premium-benefits">
             <li>
