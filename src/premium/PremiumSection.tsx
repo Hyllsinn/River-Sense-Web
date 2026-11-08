@@ -24,8 +24,8 @@ export function PremiumSection() {
             <li>
               <ChartColumn size={20} aria-hidden="true" />
               <p>
-                <strong>Relisez votre saison.</strong> Consultez le graphique annuel, touchez un
-                mois pour retrouver les prises du mois et comparez vos résultats par espèce.
+                <strong>Relisez votre saison.</strong> Consultez le graphique annuel, retrouvez les
+                prises du mois et comparez vos résultats de pêche par espèce.
               </p>
             </li>
             <li>
