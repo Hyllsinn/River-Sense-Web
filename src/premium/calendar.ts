@@ -1,0 +1,28 @@
+export const MONTHS = [
+  "jan",
+  "fév",
+  "mar",
+  "avr",
+  "mai",
+  "juin",
+  "juil",
+  "août",
+  "sept",
+  "oct",
+  "nov",
+  "déc",
+];
+export const FULL_MONTHS = [
+  "Janvier",
+  "Février",
+  "Mars",
+  "Avril",
+  "Mai",
+  "Juin",
+  "Juillet",
+  "Août",
+  "Septembre",
+  "Octobre",
+  "Novembre",
+  "Décembre",
+];

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CloudSun, Activity, ArrowUpRight, Camera, MapPin, Smartphone } from "lucide-react";
 import { MobilePreview } from "../mobile-preview/MobilePreview";
+import { PremiumSection } from "../premium/PremiumSection";
 
 import landingCss from "../landing.css?url";
 
@@ -135,28 +136,7 @@ function Index() {
             ))}
           </div>
         </section>
-        <section className="rs-launch rs-panel" id="application" aria-labelledby="launch-title">
-          <div className="rs-launch-panel">
-            <div>
-              <p className="rs-eyebrow">
-                <span /> Sur votre téléphone
-              </p>
-              <h2 id="launch-title">Retrouvez River’Sense au bord de l’eau.</h2>
-              <p>
-                River’Sense est disponible sur Android et iOS. Consultez les conditions de votre
-                rivière directement sur votre téléphone.
-              </p>
-            </div>
-            <div className="rs-platforms" aria-label="Plateformes disponibles">
-              <span>
-                <Smartphone size={19} aria-hidden="true" /> Android
-              </span>
-              <span>
-                <Smartphone size={19} aria-hidden="true" /> iOS
-              </span>
-            </div>
-          </div>
-        </section>
+        <PremiumSection />
         <section className="rs-help rs-panel" id="assistance" aria-labelledby="help-title">
           <div>
             <p className="rs-eyebrow">
