@@ -17,7 +17,8 @@ export function PremiumSection() {
             <li>
               <Camera size={20} aria-hidden="true" />
               <p>
-                <strong>Enregistrez une prise en photo.</strong> L’IA intégrée reconnaît l’espèce et l’ajoute à votre album. Vous pouvez aussi vous constituer un album de poissons trophées.
+                <strong>Enregistrez une prise en photo.</strong> L’IA intégrée reconnaît l’espèce et ajoute la prise à votre album.
+                Créez aussi votre galerie de poissons trophées.
               </p>
             </li>
             <li>
