@@ -193,7 +193,8 @@
 }
 
 .mobile-demo-caption {
-  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+  text-align: center;
   color: var(--rs-muted);
   font-size: 0.75rem;
 }

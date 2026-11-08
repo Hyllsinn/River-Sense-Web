@@ -10,9 +10,6 @@ export function MobilePreview() {
   const { place, river, bundle, thermal, weather } = demo;
   return (
     <figure className="mobile-demo-frame">
-      <figcaption id="river-demo-caption" className="mobile-demo-caption">
-        Aperçu interactif
-      </figcaption>
       <div className="mobile-demo-phone">
         <div className="mobile-demo-screen">
           <div className="mobile-demo-status" aria-hidden="true">
@@ -47,6 +44,9 @@ export function MobilePreview() {
           <div className="mobile-demo-gesture" aria-hidden="true" />
         </div>
       </div>
+      <figcaption id="river-demo-caption" className="mobile-demo-caption">
+        Aperçu interactif
+      </figcaption>
     </figure>
   );
 }
