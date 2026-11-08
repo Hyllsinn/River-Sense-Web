@@ -4,32 +4,47 @@ export const species = [
   { id: "cyprinus_carpio", label: "Carpe" },
   { id: "sander_lucioperca", label: "Sandre" },
   { id: "tinca_tinca", label: "Tanche" },
+  { id: "salmo_trutta", label: "Truite fario" },
+  { id: "squalius_cephalus", label: "Chevesne" },
+  { id: "barbus_barbus", label: "Barbeau" },
 ] as const;
 
 export type PreviewSpecies = (typeof species)[number]["id"];
-export type PreviewEntry = { speciesId: PreviewSpecies; year: number; month: number };
+export type PreviewEntry = {
+  speciesId: PreviewSpecies;
+  year: number;
+  month: number;
+  caughtAt: string;
+};
 
 export const year = 2026;
-const [perche, brochet, carpe, sandre, tanche] = species;
+const [perche, brochet, carpe, sandre, tanche, truite, chevesne, barbeau] = species;
 
-// Fixed random draw for the demonstration, in calendar order.
+// Fixed draw without replacement in each month to show a varied journal.
 const catchesByMonth = [
   [],
-  [carpe],
-  [carpe, sandre],
-  [perche, perche, brochet],
-  [perche, brochet, tanche, carpe, perche],
-  [brochet, tanche, brochet, brochet, sandre, brochet, perche],
-  [brochet, carpe, tanche, tanche, perche, brochet, carpe, perche],
-  [brochet, carpe, brochet, carpe, tanche, brochet],
-  [carpe, carpe, perche, sandre],
-  [carpe, sandre, carpe],
-  [perche, brochet],
+  [perche],
+  [chevesne, barbeau],
+  [carpe, sandre, tanche],
+  [barbeau, tanche, chevesne, sandre, truite],
+  [tanche, carpe, truite, barbeau, perche, chevesne, brochet],
+  [sandre, carpe, truite, chevesne, barbeau, brochet, perche, tanche],
+  [sandre, perche, tanche, barbeau, truite, carpe],
+  [chevesne, sandre, barbeau, brochet],
+  [brochet, tanche, barbeau],
+  [perche, barbeau],
   [],
 ];
 
 export const entries: PreviewEntry[] = catchesByMonth.flatMap((catches, month) =>
-  catches.map(({ id }) => ({ year, month, speciesId: id })),
+  catches.map(({ id }, index) => ({
+    year,
+    month,
+    speciesId: id,
+    caughtAt: new Date(
+      Date.UTC(year, month, (catches.length - index) * 3, 7 + (index % 4), (15 + index * 13) % 60),
+    ).toISOString(),
+  })),
 );
 
 export const counts = catchesByMonth.map((catches) => catches.length);

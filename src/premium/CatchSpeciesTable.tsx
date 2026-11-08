@@ -10,12 +10,36 @@ const SPECIES_BAR_COLORS: Record<PreviewSpecies, string> = {
   perca_fluviatilis: "#A4B45D",
   sander_lucioperca: "#99B0B9",
   tinca_tinca: "#8F9965",
+  salmo_trutta: "#B58B73",
+  squalius_cephalus: "#ABB09A",
+  barbus_barbus: "#B4A88A",
 };
 
 const IMAGE_BOUNDS: Record<
   string,
   { width: number; height: number; left: number; top: number; ratio: number }
 > = {
+  salmo_trutta: {
+    width: 121.67300380228137,
+    height: 119.83122362869199,
+    left: -10.836501901140684,
+    top: -11.39240506329114,
+    ratio: 2.219409282700422,
+  },
+  squalius_cephalus: {
+    width: 180.2816901408451,
+    height: 129.0909090909091,
+    left: -41.40845070422535,
+    top: -18.181818181818183,
+    ratio: 1.6136363636363635,
+  },
+  barbus_barbus: {
+    width: 124.5136186770428,
+    height: 115.44715447154472,
+    left: -13.424124513618677,
+    top: -7.723577235772358,
+    ratio: 2.089430894308943,
+  },
   sander_lucioperca: {
     width: 169.76127320954907,
     height: 134.59715639810426,

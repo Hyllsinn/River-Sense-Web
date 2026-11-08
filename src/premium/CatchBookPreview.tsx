@@ -1,4 +1,4 @@
-import { ChartColumn, ChartSpline, List, Trophy, X } from "lucide-react";
+import { ChartColumn, ChartSpline, List, Pencil, Trophy, X } from "lucide-react";
 import { useState } from "react";
 
 import { PreviewPhone } from "../mobile-preview/PreviewPhone";
@@ -8,6 +8,14 @@ import { CatchLogIcon } from "./CatchLogIcon";
 import { CatchSpeciesTable } from "./CatchSpeciesTable";
 import { FULL_MONTHS } from "./calendar";
 import { counts, entries, species, year } from "./sample";
+
+const catchDate = new Intl.DateTimeFormat("fr-FR", {
+  timeZone: "Europe/Paris",
+  day: "numeric",
+  month: "long",
+  hour: "2-digit",
+  minute: "2-digit",
+});
 
 const photos = [
   {
@@ -146,18 +154,44 @@ export function CatchBookPreview() {
               <p className="py-3 text-sm text-muted-foreground">Aucune prise ce mois-ci.</p>
             ) : (
               <ul className="space-y-2">
-                {visible.map((entry, index) => (
-                  <li key={index} className="inner-panel flex items-center gap-2 px-3 py-2 text-sm">
-                    <img
-                      src={FISH_SPECIES_IMAGES[entry.speciesId]}
-                      alt=""
-                      width="56"
-                      height="32"
-                      className="h-8 w-14 shrink-0 object-contain"
-                    />
-                    {species.find((item) => item.id === entry.speciesId)?.label}
-                  </li>
-                ))}
+                {visible.map((entry) => {
+                  const label = species.find((fish) => fish.id === entry.speciesId)?.label;
+                  return (
+                    <li key={entry.caughtAt} className="inner-panel overflow-hidden p-4">
+                      <div className="flex items-center gap-3">
+                        <span
+                          className="flex h-10 w-20 shrink-0 items-center justify-center"
+                          aria-hidden="true"
+                        >
+                          <img
+                            src={FISH_SPECIES_IMAGES[entry.speciesId]}
+                            alt=""
+                            width={80}
+                            height={40}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-full object-contain"
+                          />
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <p className="break-words font-semibold">{label}</p>
+                          <time dateTime={entry.caughtAt} className="text-sm text-muted-foreground">
+                            {catchDate.format(new Date(entry.caughtAt))}
+                          </time>
+                        </div>
+                        <button
+                          type="button"
+                          disabled
+                          aria-label={`Modifier ${label}`}
+                          title="Modifier la prise"
+                          className="flex size-11 shrink-0 items-center justify-center rounded-full border border-border bg-secondary disabled:opacity-50"
+                        >
+                          <Pencil className="size-4" aria-hidden />
+                        </button>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             )}
           </>
