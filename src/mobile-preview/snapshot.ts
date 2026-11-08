@@ -28,7 +28,7 @@ const species = [
   ["tinca_tinca", "Tanche", 8, 17, 7],
   ["abramis_brama", "Brème", 11, 16, 8],
   ["rutilus_rutilus", "Gardon", 9, 14, 9],
-  ["oncorhynchus_mykiss", "Truite arc-en-ciel", 8, 16, 10],
+  ["salmo_trutta", "Truite fario", 8, 17, 11],
   ["micropterus_salmoides", "Black-bass", 10, 16, 12],
   ["silurus_glanis", "Silure", 5, 21, 13],
   ["thymallus_thymallus", "Ombre", 9, 15, 14],
