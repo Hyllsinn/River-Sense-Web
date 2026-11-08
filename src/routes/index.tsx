@@ -95,7 +95,7 @@ function Index() {
                 <span /> L’application de pêche en rivière
               </p>
               <h1 id="hero-title">
-                Analysez, et saisissez <em>le bon moment pour pêcher</em>
+                Analysez, <em>et saisissez le bon moment pour pêcher</em>
               </h1>
               <p className="rs-lead">
                 L’activité des poissons, la météo et les conditions de la rivière au même endroit
