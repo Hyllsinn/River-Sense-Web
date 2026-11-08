@@ -180,36 +180,34 @@ function Index() {
           </a>
         </section>
       </main>
-      <footer className="rs-footer">
-        <div className="rs-footer-inner">
-          <div className="rs-footer-grid">
-            <div>
-              <Brand />
-              <p>Les conditions de pêche en rivière, espèce par espèce.</p>
-            </div>
-            <nav aria-labelledby="footer-legal">
-              <h2 id="footer-legal">Informations légales</h2>
-              <ul>
-                <li>
-                  <Link to="/confidentialite">Politique de confidentialité</Link>
-                </li>
-                <li>
-                  <Link to="/conditions-utilisation">Conditions d’utilisation</Link>
-                </li>
-                <li>
-                  <a href="#assistance">Assistance</a>
-                </li>
-              </ul>
-            </nav>
-            <div>
-              <h2>Contact</h2>
-              <a className="rs-footer-email" href="mailto:riversense-mobile@orange.fr">
-                riversense-mobile@orange.fr
-              </a>
-            </div>
+      <footer className="rs-footer rs-panel">
+        <div className="rs-footer-grid">
+          <div>
+            <Brand />
+            <p>Les conditions de pêche en rivière, espèce par espèce.</p>
           </div>
-          <p className="rs-footer-copyright">© 2026 River’Sense. Tous droits réservés.</p>
+          <nav aria-labelledby="footer-legal">
+            <h2 id="footer-legal">Informations légales</h2>
+            <ul>
+              <li>
+                <Link to="/confidentialite">Politique de confidentialité</Link>
+              </li>
+              <li>
+                <Link to="/conditions-utilisation">Conditions d’utilisation</Link>
+              </li>
+              <li>
+                <a href="#assistance">Assistance</a>
+              </li>
+            </ul>
+          </nav>
+          <div>
+            <h2>Contact</h2>
+            <a className="rs-footer-email" href="mailto:riversense-mobile@orange.fr">
+              riversense-mobile@orange.fr
+            </a>
+          </div>
         </div>
+        <p className="rs-footer-copyright">© 2026 River’Sense. Tous droits réservés.</p>
       </footer>
     </div>
   );
