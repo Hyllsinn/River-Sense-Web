@@ -88,11 +88,6 @@
 .rs-banner:focus-visible {
   outline-offset: -5px;
 }
-.rs-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
 .rs-text-link:hover,
 .rs-footer a:hover {
   text-decoration: underline;
@@ -132,10 +127,6 @@
 .rs-site h1,
 .rs-site h2,
 .rs-site h3,
-.rs-brand {
-  font-family: "Bricolage Grotesque", system-ui, sans-serif;
-  font-weight: 700;
-}
 .rs-site h1 {
   margin: 0;
   font-size: clamp(2.4rem, 4.6vw, 4.1rem);
@@ -305,14 +296,8 @@
 }
 .rs-footer-grid {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.75rem;
-}
-.rs-brand {
-  font-size: 1.15rem;
-}
-.rs-brand-icon {
-  color: var(--rs-primary);
 }
 .rs-footer-grid h2 {
   margin-bottom: 0.8rem;
@@ -321,15 +306,11 @@
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
-.rs-footer-grid p,
 .rs-footer-grid ul,
 .rs-footer-email,
 .rs-footer-copyright {
   color: var(--rs-muted);
   font-size: 0.95rem;
-}
-.rs-footer-grid p {
-  margin-top: 0.65rem;
 }
 .rs-footer-grid ul {
   display: grid;

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CloudSun, Activity, ArrowUpRight, Camera, MapPin, Smartphone, Waves } from "lucide-react";
+import { CloudSun, Activity, ArrowUpRight, Camera, MapPin, Smartphone } from "lucide-react";
 import { MobilePreview } from "../mobile-preview/MobilePreview";
 
 import landingCss from "../landing.css?url";
@@ -28,17 +28,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-function Brand() {
-  return (
-    <a className="rs-brand" href="/" aria-label="River’Sense, accueil">
-      <span className="rs-brand-icon">
-        <Waves size={20} aria-hidden="true" />
-      </span>
-      River’Sense
-    </a>
-  );
-}
 
 const features = [
   {
@@ -182,10 +171,6 @@ function Index() {
       </main>
       <footer className="rs-footer rs-panel">
         <div className="rs-footer-grid">
-          <div>
-            <Brand />
-            <p>Les conditions de pêche en rivière, espèce par espèce.</p>
-          </div>
           <nav aria-labelledby="footer-legal">
             <h2 id="footer-legal">Informations légales</h2>
             <ul>
