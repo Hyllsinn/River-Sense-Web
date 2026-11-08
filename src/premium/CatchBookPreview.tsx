@@ -19,14 +19,14 @@ const catchDate = new Intl.DateTimeFormat("fr-FR", {
 
 const photos = [
   {
-    id: "perche",
-    label: "Perche",
-    alt: "Un pêcheur présente une perche sur un ponton, avec la rivière à gauche.",
-  },
-  {
     id: "brochet",
     label: "Brochet",
     alt: "Un pêcheur présente un brochet sur les galets, au ras de l’eau.",
+  },
+  {
+    id: "perche",
+    label: "Perche",
+    alt: "Un pêcheur présente une perche sur un ponton, avec la rivière à gauche.",
   },
   {
     id: "carpe",
