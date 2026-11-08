@@ -1,7 +1,8 @@
-import { ChartColumn, ChartSpline, Fish, List, Trophy, X } from "lucide-react";
+import { ChartColumn, ChartSpline, List, Trophy, X } from "lucide-react";
 import { useState } from "react";
 
 import { PreviewPhone } from "../mobile-preview/PreviewPhone";
+import { FISH_SPECIES_IMAGES } from "../mobile-preview/snapshot";
 import { CatchChart } from "./CatchChart";
 import { CatchLogIcon } from "./CatchLogIcon";
 import { CatchSpeciesTable } from "./CatchSpeciesTable";
@@ -147,7 +148,13 @@ export function CatchBookPreview() {
               <ul className="space-y-2">
                 {visible.map((entry, index) => (
                   <li key={index} className="inner-panel flex items-center gap-2 px-3 py-2 text-sm">
-                    <Fish className="size-4 text-primary" aria-hidden />
+                    <img
+                      src={FISH_SPECIES_IMAGES[entry.speciesId]}
+                      alt=""
+                      width="56"
+                      height="32"
+                      className="h-8 w-14 shrink-0 object-contain"
+                    />
                     {species.find((item) => item.id === entry.speciesId)?.label}
                   </li>
                 ))}
