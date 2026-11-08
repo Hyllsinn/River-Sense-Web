@@ -287,8 +287,15 @@
 }
 .rs-footer-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.75rem;
+}
+.rs-footer-logo {
+  display: block;
+  width: min(100%, 9rem);
+  height: auto;
+  align-self: center;
+  border-radius: 0.85rem;
 }
 .rs-footer-grid h2 {
   margin-bottom: 0.8rem;
@@ -340,7 +347,10 @@
 
 @media (max-width: 620px) {
   .rs-footer-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: minmax(0, 25%) minmax(0, 1fr);
+    gap: 1.25rem 1rem;
+  }
+  .rs-footer-logo {
+    grid-row: span 2;
   }
 }

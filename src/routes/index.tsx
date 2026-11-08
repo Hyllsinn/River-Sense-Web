@@ -140,6 +140,15 @@ function Index() {
       </main>
       <footer className="rs-footer rs-panel">
         <div className="rs-footer-grid">
+          <img
+            className="rs-footer-logo"
+            src="/river-sense-footer.webp"
+            alt="Logo River’Sense, un poisson sautant hors de l’eau"
+            width="320"
+            height="320"
+            loading="lazy"
+            decoding="async"
+          />
           <nav aria-labelledby="footer-legal">
             <h2 id="footer-legal">Informations légales</h2>
             <ul>
