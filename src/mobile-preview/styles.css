@@ -71,52 +71,127 @@
 
 .mobile-demo-phone {
   position: relative;
-  padding: 1.35rem 0.45rem 1.15rem;
-  border: 1px solid #55706e;
-  border-radius: 2.15rem;
-  background: linear-gradient(145deg, #263b3b, #071314 35%, #061011 75%, #263b3b);
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  aspect-ratio: 9 / 19.5;
+  padding: 0.44rem;
+  border: 1px solid #829491;
+  border-radius: clamp(1.9rem, 5vw, 2.85rem);
+  background: linear-gradient(145deg, #9eb2af, #172625 24%, #071011 70%, #667b79);
   box-shadow:
-    inset 0 0 0 2px #0a1516,
-    0 18px 35px -17px #000;
+    inset 0 0 0 2px #263b3b,
+    3px 3px 0 #101e1f,
+    6px 6px 0 #071012,
+    18px 30px 37px -14px #000c,
+    0 10px 18px #0007;
 }
 
 .mobile-demo-phone::before,
 .mobile-demo-phone::after {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 1rem;
+  width: 0.23rem;
+  border: 1px solid #405654;
+  border-radius: 0.3rem;
+  background: linear-gradient(90deg, #0c1718, #819593, #1e3131);
   content: "";
   pointer-events: none;
 }
 
 .mobile-demo-phone::before {
-  top: 0.52rem;
-  width: 2.25rem;
-  height: 0.25rem;
-  background: #070c0d;
-  box-shadow: 0 1px 0 #415050;
+  top: 21%;
+  left: -0.25rem;
+  height: 3rem;
 }
 
 .mobile-demo-phone::after {
-  bottom: 0.44rem;
-  width: 3.5rem;
+  top: 26%;
+  right: -0.25rem;
+  height: 2.05rem;
+}
+
+.mobile-demo-screen {
+  position: relative;
+  display: grid;
+  grid-template-rows: 2.05rem minmax(0, 1fr) 1.1rem;
+  min-width: 0;
+  overflow: hidden;
+  border: 2px solid #020607;
+  border-radius: clamp(1.5rem, 4vw, 2.42rem);
+  background: #062523;
+}
+
+.mobile-demo-screen::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(146deg, #e5ffff22, #dcffff08 21%, transparent 42%);
+  content: "";
+  pointer-events: none;
+}
+
+.mobile-demo-status {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 0.9rem;
+  background: #061b1b;
+  color: #f3f9f8;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.mobile-demo-status-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.18rem;
+}
+
+.mobile-demo-camera {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.7rem;
+  height: 0.83rem;
+  transform: translate(-50%, -50%);
+  border: 1px solid #172929;
+  border-radius: 1rem;
+  background: radial-gradient(circle at 77% 50%, #274754 0 1px, #0d222b 2px, #020506 3px);
+}
+
+.mobile-demo-gesture {
+  display: grid;
+  place-items: center;
+  background: #061b1b;
+}
+
+.mobile-demo-gesture::before {
+  width: 32%;
   height: 0.19rem;
-  background: #708484;
+  border-radius: 1rem;
+  background: #c3d1d0;
+  content: "";
 }
 
 .mobile-demo-scroll {
-  max-height: 42rem;
-  max-height: clamp(26rem, 155cqw, 42rem);
+  min-height: 0;
   overflow-y: auto;
   scrollbar-color: #477770 #092521;
   scrollbar-width: thin;
-  padding: 1rem;
-  border: 1px solid var(--rs-line);
-  border-radius: 1.35rem;
+  padding: 0.75rem;
   background:
     linear-gradient(#031c120d, #031c1226),
     url("/river-predawn-portrait.webp") center top / cover;
+}
+
+.rs-site .mobile-demo-scroll:focus-visible {
+  outline-offset: -2px;
+}
+
+@media (min-width: 900px) {
+  .mobile-demo-phone {
+    transform: perspective(900px) rotateY(-7deg) rotateX(2deg);
+  }
 }
 
 .mobile-demo-caption {
@@ -126,10 +201,9 @@
 }
 
 .mobile-demo-frame {
-  width: min(100%, 27rem);
+  width: min(100%, 22.5rem);
   min-width: 0;
   justify-self: center;
-  container-type: inline-size;
 }
 
 @media (max-width: 420px) {
