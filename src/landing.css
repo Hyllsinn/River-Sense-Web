@@ -152,28 +152,60 @@
   font-size: clamp(1rem, 2vw, 1.16rem);
 }
 .rs-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1rem;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr));
+  gap: 0.75rem;
 }
-.rs-button,
+.rs-store-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 4.75rem;
+  padding: 0.75rem;
+  border: 1px solid #858b89;
+  border-radius: 0.9rem;
+  background: #090b0b;
+  color: #fff;
+}
+.rs-store-link:hover {
+  background: #202625;
+  border-color: #c1ccca;
+}
+.rs-store-icon {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+}
+.rs-store-icon-apple {
+  border-radius: 0.5rem;
+  background: linear-gradient(#32b8fa, #1463ed);
+}
+.rs-store-link small,
+.rs-store-link strong {
+  display: block;
+  line-height: 1.1;
+}
+.rs-store-link small {
+  margin-bottom: 0.2rem;
+  font-size: 0.72rem;
+  color: #e0e5e4;
+}
+.rs-store-link strong {
+  font-size: clamp(1.06rem, 2vw, 1.45rem);
+  white-space: nowrap;
+}
+.rs-store-arrow {
+  margin-left: auto;
+  flex: none;
+  color: #c1ccca;
+}
 .rs-text-link {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
   font-weight: 600;
-}
-.rs-button {
-  padding: 0.75rem 1rem;
-  border-radius: 99px;
-  background: var(--rs-primary);
-  color: var(--rs-deep);
-}
-.rs-button:hover {
-  background: oklch(0.86 0.12 175);
-}
-.rs-text-link {
   color: var(--rs-primary);
 }
 .rs-coverage {

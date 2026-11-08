@@ -2,8 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   CloudSun,
   Activity,
-  ArrowDown,
-  ArrowRight,
   ArrowUpRight,
   Camera,
   Fish,
@@ -97,20 +95,35 @@ function Index() {
                 <span /> L’application de pêche en rivière
               </p>
               <h1 id="hero-title">
-                Lisez la rivière.
-                <br />
-                <em>Choisissez votre moment.</em>
+                Analysez, et saisissez <em>le bon moment pour pêcher</em>
               </h1>
               <p className="rs-lead">
                 L’activité des poissons, la météo et les conditions de la rivière au même endroit
                 pour préparer votre prochaine sortie.
               </p>
-              <div className="rs-actions">
-                <a className="rs-button" href="#fonctionnalites">
-                  Découvrir River’Sense <ArrowDown size={18} aria-hidden="true" />
+              <div className="rs-actions" aria-label="Boutiques mobiles" role="group">
+                <a className="rs-store-link" href="https://apps.apple.com/fr/iphone/today">
+                  <span className="rs-store-icon rs-store-icon-apple" aria-hidden="true">
+                    <Smartphone size={25} />
+                  </span>
+                  <span>
+                    <small>Bientôt sur</small>
+                    <strong>App Store</strong>
+                  </span>
+                  <ArrowUpRight className="rs-store-arrow" size={15} aria-hidden="true" />
                 </a>
-                <a className="rs-text-link" href="#application">
-                  Lancement mobile <ArrowRight size={17} aria-hidden="true" />
+                <a className="rs-store-link" href="https://play.google.com/store/apps?hl=fr">
+                  <svg className="rs-store-icon" viewBox="0 0 32 32" aria-hidden="true">
+                    <path fill="#32BBF1" d="M5 3v26l13-13z" />
+                    <path fill="#00D086" d="M5 3c.6-.5 1.4-.5 2.2 0l15.7 8.9L18 16z" />
+                    <path fill="#FFCC33" d="m18 16 4.9-4.1 5.5 3.1c.9.5.9 1.5 0 2l-5.5 3.1z" />
+                    <path fill="#FF4761" d="m18 16 4.9 4.1L7.2 29c-.8.5-1.6.5-2.2 0z" />
+                  </svg>
+                  <span>
+                    <small>Bientôt sur</small>
+                    <strong>Google Play</strong>
+                  </span>
+                  <ArrowUpRight className="rs-store-arrow" size={15} aria-hidden="true" />
                 </a>
               </div>
               <p className="rs-coverage">
