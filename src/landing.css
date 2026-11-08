@@ -247,7 +247,7 @@
 
 .rs-premium-benefits {
   display: grid;
-  gap: 0.85rem;
+  gap: 1.25rem;
   margin-block: 1.25rem;
 }
 .rs-premium-benefits li {
