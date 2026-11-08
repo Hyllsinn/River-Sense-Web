@@ -11,7 +11,7 @@ export function MobilePreview() {
   return (
     <figure className="mobile-demo-frame">
       <figcaption id="river-demo-caption" className="mobile-demo-caption">
-        Aperçu interactif · Données fictives et figées
+        Aperçu interactif
       </figcaption>
       <div
         className="mobile-demo mobile-demo-scroll"
