@@ -17,8 +17,7 @@ export function PremiumSection() {
             <li>
               <Camera size={20} aria-hidden="true" />
               <p>
-                <strong>Enregistrez une prise en photo.</strong> Le carnet propose une espèce à
-                partir de l’image. Vous pouvez aussi la choisir vous-même.
+                <strong>Enregistrez une prise en photo.</strong> L’IA intégrée reconnaît l’espèce et l’ajoute à votre album. Vous pouvez aussi vous constituer un album de poissons trophées.
               </p>
             </li>
             <li>
