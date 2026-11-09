@@ -32,7 +32,7 @@ export function PremiumSection() {
               <CloudSun size={20} aria-hidden="true" />
               <p>
                 <strong>Sachez à quoi vous attendre.</strong> Activez la fonction météo heure par heure
-                et sachez en un coup d’œil comment sera le ciel pendant votre partie de pêche.
+                et découvrez comment sera le ciel pendant votre partie de pêche.
               </p>
             </li>
             <li>
