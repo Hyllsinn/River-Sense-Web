@@ -1,4 +1,4 @@
-import { Camera, ChartColumn, ShieldCheck } from "lucide-react";
+import { Camera, ChartColumn, CloudSun, ShieldCheck } from "lucide-react";
 
 import { CatchBookPreview } from "./CatchBookPreview";
 
@@ -26,6 +26,13 @@ export function PremiumSection() {
               <p>
                 <strong>Relisez votre saison.</strong> Consultez le graphique annuel, retrouvez les
                 prises du mois et comparez vos résultats de pêche par espèce.
+              </p>
+            </li>
+            <li>
+              <CloudSun size={20} aria-hidden="true" />
+              <p>
+                <strong>Sachez à quoi vous attendre.</strong> Activez la fonction météo heure par heure
+                et sachez en un coup d’œil comment sera le ciel pendant votre partie de pêche.
               </p>
             </li>
             <li>
